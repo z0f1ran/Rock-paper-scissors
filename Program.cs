@@ -10,6 +10,7 @@ namespace Rock_paper_scissors
     {
         static void Main(string[] args)
         {
+            //1 Create a game-loop and a start-label
             // 0 - rock 1 - paper 2 - scissors
             Console.WriteLine("Its a ROCK-PAPER-SCISSORS game!");
             Console.WriteLine("Computer will play againts u");
