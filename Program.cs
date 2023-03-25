@@ -14,11 +14,13 @@ namespace Rock_paper_scissors
             // 0 - rock 1 - paper 2 - scissors
             int userChoose = -1;
             int botChoose = -1;
+            int userWinCount = 0;
+            int botWinCount = 0;
             Console.WriteLine("Its a ROCK-PAPER-SCISSORS game!");
             Console.WriteLine("Computer will play againts u");
             Console.WriteLine("Use numbers for choose a thing(0 - rock 1 - paper 2 - scissors)");
             Random botRandChoose = new Random();
-            while (true)
+            while (userWinCount < 3 && botWinCount < 3)
             {
                 while (userChoose < 0 || userChoose > 2)
                 {
@@ -28,17 +30,19 @@ namespace Rock_paper_scissors
 
                 botChoose = botRandChoose.Next(0, 3);
 
-                Console.WriteLine("Bot Choose is",botChoose);
+                Console.WriteLine($"Bot choose is {botChoose}");
 
                 if (botChoose > userChoose || (botChoose == 0 && userChoose == 3))
                 {
                     //botWinsCount++
                     Console.WriteLine("Bot win!");
+                    botWinCount++;
                 }
 
                 else if(userChoose > botChoose || (userChoose == 0 && botChoose == 3))
                 {
                     Console.WriteLine("User win!");
+                    userWinCount++;
                 }
 
                 else
@@ -47,7 +51,18 @@ namespace Rock_paper_scissors
                 }
 
                 userChoose = -1;
+                Console.WriteLine("\n");
             }
+            Console.WriteLine($"\n\nUser : {userWinCount}   Bot : {botWinCount}");
+            if(userWinCount > botWinCount)
+            {
+                Console.WriteLine("\n\nUser WIN!");
+            }
+            else
+            {
+                Console.WriteLine("\n\nBot WIN!");
+            }
+            Console.ReadLine();
         }
     }
 }
